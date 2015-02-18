@@ -87,7 +87,7 @@ namespace nSpotify
         /// <param name="launchIfRunning">if set to <c>true</c> the method will try to launch the Spotify Web Helper even if it is already running.</param>
         public static void StartSpotifyWebHelper(bool launchIfRunning = false)
         {
-            if (launchIfRunning || !Spotify.SpotifyRunning)
+            if (launchIfRunning || !Spotify.SpotifyWebHelperRunning)
             {
                 Process.Start(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), @"Spotify\Data\SpotifyWebHelper.exe"));
             }
