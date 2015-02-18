@@ -89,7 +89,7 @@ namespace nSpotify
         {
             if (launchIfRunning || !Spotify.SpotifyRunning)
             {
-                Process.Start(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), @"Spotify\SpotifyLauncher.exe"));
+                Process.Start(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), @"Spotify\Data\SpotifyWebHelper.exe"));
             }
         }
 
