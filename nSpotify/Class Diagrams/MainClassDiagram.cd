@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="nSpotify.Spotify">
+    <Position X="0.5" Y="0.5" Width="2.25" />
+    <Members>
+      <Field Name="providerInstance" Hidden="true" />
+      <Field Name="providerInstanceSyncRoot" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAACAAAAAAQCAAQAACAAIAAAAgQAAQAAAAI=</HashCode>
+      <FileName>Main\Spotify.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="nSpotify.DataProvider">
+    <Position X="3" Y="0.5" Width="2.25" />
+    <Members>
+      <Property Name="cfid" Hidden="true" />
+      <Property Name="client" Hidden="true" />
+      <Field Name="embeddedTrack" Hidden="true" />
+      <Property Name="host" Hidden="true" />
+      <Property Name="oAuth" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAAESEAAQAEAAAAAAAAAgAACAAAAAAAAgABAAAAAA=</HashCode>
+      <FileName>Main\DataProvider.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
