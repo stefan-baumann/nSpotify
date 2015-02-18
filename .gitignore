@@ -214,3 +214,13 @@ pip-log.txt
 
 #Mr Developer
 .mr.developer.cfg
+packages/repositories.config
+packages/Newtonsoft.Json.6.0.6/Newtonsoft.Json.6.0.6.nupkg
+packages/Newtonsoft.Json.6.0.6/tools/install.ps1
+packages/Newtonsoft.Json.6.0.6/lib/portable-net45+wp80+win8+wpa81+aspnetcore50/Newtonsoft.Json.xml
+packages/Newtonsoft.Json.6.0.6/lib/portable-net40+sl5+wp80+win8+wpa81/Newtonsoft.Json.xml
+packages/Newtonsoft.Json.6.0.6/lib/netcore45/Newtonsoft.Json.xml
+packages/Newtonsoft.Json.6.0.6/lib/net45/Newtonsoft.Json.xml
+packages/Newtonsoft.Json.6.0.6/lib/net40/Newtonsoft.Json.xml
+packages/Newtonsoft.Json.6.0.6/lib/net35/Newtonsoft.Json.xml
+packages/Newtonsoft.Json.6.0.6/lib/net20/Newtonsoft.Json.xml
