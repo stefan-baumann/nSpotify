@@ -44,7 +44,7 @@ namespace nSpotify.Test
         {
             this.textBox1.Text = provider.UpdateStatus().ToPropertyString();
             Application.DoEvents(); //Awful to look at but hey, it's just a test app
-            this.pictureBox1.Image = provider.CurrentStatus.Track.DownloadAlbumArt(Track.AlbumArtSize.Size160);
+            this.pictureBox1.Image = provider.CurrentStatus.Track.DownloadAlbumArt();
         }
 
         private EventProvider eProvider;

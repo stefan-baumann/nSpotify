@@ -6,6 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace nSpotify
@@ -167,37 +168,25 @@ namespace nSpotify
         /// <summary>
         /// Downloads the album art.
         /// </summary>
-        /// <param name="size">The size of the album art.</param>
         /// <returns>The album art.</returns>
-        public Image DownloadAlbumArt(AlbumArtSize size)
+        public Image DownloadAlbumArt()
         {
             using (WebClient client = new WebClient() { Proxy = null })
             {
                 string source = client.DownloadString(string.Format("http://open.spotify.com/album/{0}", this.AlbumResource.InternalUri.AbsolutePath.Split(':')[1])).Replace("\t", string.Empty);
-                foreach (string line in source.Split('\r', '\n'))
+
+                Match match = Regex.Match(source, @"<meta\s*property=""og:image""\s*content=""([^"">]*?)"">");
+                if (match.Success)
                 {
-                    if (line.StartsWith("<meta property=\"og:image\""))
+                    byte[] image = client.DownloadData(match.Groups[1].Value);
+                    using (MemoryStream stream = new MemoryStream(image))
                     {
-                        byte[] image = client.DownloadData(line.Split('"')[3].Replace("image", ((int)size).ToString()));
-                        using (MemoryStream stream = new MemoryStream(image))
-                        {
-                            return Image.FromStream(stream);
-                        }
+                        return Image.FromStream(stream);
                     }
                 }
             }
 
             return null;
-        }
-
-        /// <summary>
-        /// An enum used for specifying the size of the cover to download
-        /// </summary>
-        public enum AlbumArtSize : int
-        {
-            Size160 = 160,
-            Size320 = 320,
-            Size640 = 640
         }
     }
 }
