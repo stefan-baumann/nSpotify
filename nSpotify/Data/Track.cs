@@ -27,7 +27,7 @@ namespace nSpotify
         {
             get
             {
-                return this.TrackResource.Name;
+                return this.TrackResource?.Name;
             }
         }
 
@@ -50,7 +50,7 @@ namespace nSpotify
         {
             get
             {
-                return this.ArtistResource.Name;
+                return this.ArtistResource?.Name;
             }
         }
 
@@ -73,7 +73,7 @@ namespace nSpotify
         {
             get
             {
-                return this.AlbumResource.Name;
+                return this.AlbumResource?.Name;
             }
         }
 
@@ -115,7 +115,7 @@ namespace nSpotify
         /// </returns>
         public static bool operator ==(Track left, Track right)
         {
-            return left.TrackResource == right.TrackResource && left.ArtistResource == right.ArtistResource && left.AlbumResource == right.AlbumResource && left.Length == right.Length && left.Type == right.Type;
+            return (object)right != null && left.TrackResource == right.TrackResource && left.ArtistResource == right.ArtistResource && left.AlbumResource == right.AlbumResource && left.Length == right.Length && left.Type == right.Type;
         }
 
         /// <summary>

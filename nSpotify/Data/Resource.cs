@@ -51,7 +51,7 @@ namespace nSpotify
         /// </returns>
         public static bool operator ==(Resource left, Resource right)
         {
-            return left.Name == right.Name && left.InternalUri == right.InternalUri;
+            return left?.Name == right?.Name && left?.InternalUri == right?.InternalUri;
         }
 
         /// <summary>
