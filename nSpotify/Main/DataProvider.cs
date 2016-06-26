@@ -141,7 +141,15 @@ namespace nSpotify
                 addOAuth ? "&oauth=" + this.oAuth : string.Empty,
                 addCfid ? "&csrf=" + this.cfid : string.Empty);
             string url = string.Format("http://{0}:4380/{1}{2}", host, request, parameters);
-            string response = this.client.DownloadString(url);
+            
+            WebClient new_client = new WebClient();
+            new_client.Proxy = null;
+            new_client.Headers.Add("Origin", "https://embed.spotify.com");
+            new_client.Headers.Add("Referer", DataProvider.embeddedTrack);
+            new_client.Encoding = Encoding.UTF8;
+
+            string response = new_client.DownloadString(url);
+            
             return string.Format("[ {0} ]", response);
         }
 
