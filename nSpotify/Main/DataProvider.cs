@@ -78,14 +78,21 @@ namespace nSpotify
             {
                 //We need to specify a UserAgent header because Spotify blocked access to WebClients without a valid UserAgent
                 downloadClient.Headers[HttpRequestHeader.UserAgent] = "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/535.2 (KHTML, like Gecko) Chrome/15.0.874.121 Safari/535.2";
-                string webSource = downloadClient.DownloadString(DataProvider.embeddedTrack).Replace(" ", string.Empty).Replace("\t", string.Empty);
-                foreach(string line in webSource.Split('\n', '\r'))
+                //string webSource = downloadClient.DownloadString(DataProvider.embeddedTrack).Replace(" ", string.Empty).Replace("\t", string.Empty);
+                //foreach(string line in webSource.Split('\n', '\r'))
+                //{
+                //    //The line we are looking for looks like this (without the "): "tokenData = '<token>'," where <token> represents where the OAuth token
+                //    if (line.StartsWith("tokenData"))
+                //    {
+                //        return line.Split('\'')[1];
+                //    }
+                //}
+
+                string json = downloadClient.DownloadString("http://open.spotify.com/token");
+                dynamic deserialized = JsonConvert.DeserializeObject(json);
+                if (deserialized.t != null)
                 {
-                    //The line we are looking for looks like this (without the "): "tokenData = '<token>'," where <token> represents where the OAuth token
-                    if (line.StartsWith("tokenData"))
-                    {
-                        return line.Split('\'')[1];
-                    }
+                    return deserialized.t.ToString();
                 }
 
                 throw new Exception("Could not find the OAuth token.");
@@ -140,7 +147,7 @@ namespace nSpotify
                 timestamp,
                 addOAuth ? "&oauth=" + this.oAuth : string.Empty,
                 addCfid ? "&csrf=" + this.cfid : string.Empty);
-            string url = string.Format("http://{0}:4380/{1}{2}", host, request, parameters);
+            string url = string.Format("https://nspotify.spotilocal.com:4371/{0}{1}", request, parameters);
             string response = this.client.DownloadString(url);
             return string.Format("[ {0} ]", response);
         }

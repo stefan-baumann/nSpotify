@@ -63,7 +63,11 @@ namespace nSpotify
         {
             if (launchIfRunning || !Spotify.SpotifyRunning)
             {
-                Process.Start(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), @"Spotify\SpotifyLauncher.exe"));
+                string path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), @"Spotify\SpotifyLauncher.exe");
+                if (File.Exists(path))
+                {
+                    Process.Start(path);
+                }
             }
         }
 
@@ -89,7 +93,19 @@ namespace nSpotify
         {
             if (launchIfRunning || !Spotify.SpotifyWebHelperRunning)
             {
-                Process.Start(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), @"Spotify\Data\SpotifyWebHelper.exe"));
+                string path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), @"Spotify\SpotifyWebHelper.exe");
+                if (File.Exists(path))
+                {
+                    Process.Start(path);
+                }
+                else
+                {
+                    path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), @"Spotify\Data\SpotifyWebHelper.exe");
+                    if (File.Exists(path))
+                    {
+                        Process.Start(path);
+                    }
+                }
             }
         }
 
