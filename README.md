@@ -1,5 +1,6 @@
 # nSpotify
-:warning: __Unfortunately, Spotify seems to have discontinued the support for the SpotifyWebHelper API, which makes this library obsolete.__ :warning:
+:warning: __Unfortunately, Spotify seems to have discontinued the support for the SpotifyWebHelper API.__
+There are great alternatives like JohnnyCrazy's [SpotifyAPI-NET](https://github.com/JohnnyCrazy/SpotifyAPI-NET) which utilize the officially supported Spotify Web Api, but those require official authorization which was the entire point of this library - to allow for easy access to metadata about the local Spotify instance. I have identified new ways to archieve this goal which I might implement at some point, but I don't have the time at the moment to do so unfortunately.
 
 A simple .NET Library that allows developers to fetch data from the Spotify Client
 
