@@ -2,6 +2,7 @@
 A simple .NET Library that allows developers to fetch data from the Spotify Client
 
 Intended to be a replacement for the obsolete spotify-local-api, it became probably the easiest way to access the local Spotify client via the Spotify Web Api.
+__Unfortunately, Spotify seems to have discontinued the support for the SpotifyWebHelper API, which makes this library obsolete.__
 The parsing of the JSON responses is done with the JSON.NET library by James Newton-King. You can find it on [Codeplex](https://json.codeplex.com/) or [NuGet](http://www.nuget.org/packages/Newtonsoft.Json).
 
 The official (german) page is in the [vb-paradise.de](http://www.vb-paradise.de/index.php/Thread/108982-nSpotify-1-0-Einfach-zu-nutzende-Spotify-Api/) forum.
